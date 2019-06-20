@@ -97,7 +97,7 @@ class AddEducation extends Component {
                   onChange={this.onChange}
                   error={errors.fieldofstudy}
                 />
-                <h6>From Date</h6>
+                <h6>* From Date</h6>
                 <TextFieldGroup
                   name="from"
                   type="date"
