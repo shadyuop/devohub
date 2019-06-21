@@ -3,10 +3,6 @@ import React, { Component } from "react";
 // import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import isEmpty from "../../validation/is-empty";
-// import { withRouter } from "react-router-dom";
-// import Spinner from "../common/Spinner";
-// import ProfileItem from "./ProfileItem";
-// import { getProfiles } from "../../actions/profileActions";
 
 class ProfileHeader extends Component {
   render() {
