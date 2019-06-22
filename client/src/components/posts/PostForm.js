@@ -78,7 +78,7 @@ PostForm.propTypes = {
 };
 
 const mapStatetoProps = state => ({
-  erros: state.erros,
+  errors: state.errors,
   auth: state.auth
 });
 
