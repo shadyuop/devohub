@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import isEmpty from "../../validation/is-empty";
 
 class ProfileItem extends Component {
@@ -22,8 +22,8 @@ class ProfileItem extends Component {
               )}
             </p>
             <p>
-              {isEmpty(
-                profile.location ? null : <span>{profile.location}</span>
+              {isEmpty(profile.location) ? null : (
+                <span>{profile.location}</span>
               )}
             </p>
             <Link to={`/profile/${profile.handle}`} className="btn btn-info">
@@ -34,7 +34,7 @@ class ProfileItem extends Component {
             <h4>Skill Set</h4>
             <ul className="list-group">
               {profile.skills.slice(0, 4).map((skill, index) => (
-                <li key={index} className="lit-group-item">
+                <li key={index} className="list-group-item">
                   <i className="fa fa-check pr-1" />
                   {skill}
                 </li>

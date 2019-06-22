@@ -9,11 +9,24 @@ import Spinner from "../common/Spinner";
 import { getPosts } from "../../actions/postActions";
 
 class Posts extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: []
+    };
+  }
   componentDidMount() {
     this.props.getPosts();
   }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.post.posts) {
+      this.setState({ posts: newProps.post.posts });
+    }
+  }
   render() {
-    const { posts, loading } = this.props.post;
+    const { loading } = this.props.post;
+    const { posts } = this.state;
     let postContent;
 
     if (posts === null || loading) {

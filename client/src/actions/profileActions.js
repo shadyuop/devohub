@@ -1,11 +1,12 @@
 import axios from "axios";
+
 import {
-  CLEAR_CURRENT_PROFILE,
-  PROFILE_LOADING,
   GET_PROFILE,
+  GET_PROFILES,
+  PROFILE_LOADING,
+  CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
-  SET_CURRENT_USER,
-  GET_PROFILES
+  SET_CURRENT_USER
 } from "./types";
 
 // Get current profile
@@ -50,7 +51,7 @@ export const getProfileByHandle = handle => dispatch => {
 export const createProfile = (profileData, history) => dispatch => {
   axios
     .post("/api/profile", profileData)
-    .then(res => history.push("./dashboard"))
+    .then(res => history.push("/dashboard"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -59,11 +60,11 @@ export const createProfile = (profileData, history) => dispatch => {
     );
 };
 
-// Add Experience
+// Add experience
 export const addExperience = (expData, history) => dispatch => {
   axios
     .post("/api/profile/experience", expData)
-    .then(res => history.push("./dashboard"))
+    .then(res => history.push("/dashboard"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -121,7 +122,7 @@ export const deleteEducation = id => dispatch => {
     );
 };
 
-// Get All Profiles
+// Get all profiles
 export const getProfiles = () => dispatch => {
   dispatch(setProfileLoading());
   axios
@@ -142,7 +143,7 @@ export const getProfiles = () => dispatch => {
 
 // Delete account & profile
 export const deleteAccount = () => dispatch => {
-  if (window.confirm("Are you sure? this can NOT be undone!")) {
+  if (window.confirm("Are you sure? This can NOT be undone!")) {
     axios
       .delete("/api/profile")
       .then(res =>
